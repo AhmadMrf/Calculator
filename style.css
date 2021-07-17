@@ -67,7 +67,7 @@ table {
   width: 100%;
   height: 100%;
   opacity: .4;
-  background: url(src/bg.jpg) center;
+  /* background: url(src/bg.jpg) center; */
   background-size: cover;
   top: 0;
   left: 0;
@@ -75,7 +75,7 @@ table {
 }
 .calc-content{
   position: relative;
-  padding: .5rem 1.2rem;
+  padding: .5rem 1.1rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -86,6 +86,7 @@ table {
   width: 100%;
   height: 5rem;
   /* border: 1px solid #6C79FF; */
+  background: #CACACA;
   border-radius: 5px;
   padding: .5rem;
   color: #292929;
@@ -116,7 +117,7 @@ table {
 .info-state{
   width: 5.5rem;
   height: 1.7rem;
-  /* border: 1px solid #1E8857; */
+  border: 1px solid #1E8857;
   float: right;
 }
 button{
@@ -128,39 +129,52 @@ button{
   margin-top: 1rem;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   /* border: 1px solid #3F881E; */
 }
 .other-btn{
-  border: 1px solid #9CDF7F;
+  /* border: 1px solid #9CDF7F; */
+  display: flex;
+  flex-flow: column nowrap;
+  flex-basis: 4.5rem;
 }
 .other{
   width: 2.8rem;
   height: 6.5rem;
   background: #FFAFAF50;
   border-radius: 2rem;
-  /* margin: 0 .5rem .8rem 0; */
+  margin-bottom:.8rem;
 }
 .numbers-btn{
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
+  flex-basis: 90%;
+  /* flex-grow: 1; */
+  /* border: 1px solid #0C10FF; */
 }
 .num{
-  width: 3.6rem;
+  /* width: 3.6rem; */
+  width: calc(33.33% - .6rem);
   height: 2.8rem;
   background: #4F4F4F60;
-  /* margin: 0 .5rem .8rem 0; */
+  margin: 0 .6rem .8rem 0;
+}
+.signs-btn{
+  /* border: 1px solid #FF6C6C; */
+  display: flex;
+  flex-flow: column nowrap;
+  /* flex-basis: 6rem */
 }
 .sign{
   width: 2.8rem;
   height: 2.9rem;
   background: #FFAFAF50;
   border-radius: 2rem;
-  /* margin-bottom: .7rem; */
+  margin-bottom: .7rem;
 }
 .equal{
-  width: 10rem;
+  width: 10.5rem;
   height: 2.6rem;
   border-radius: 2rem;
   background: #6399FF89;
