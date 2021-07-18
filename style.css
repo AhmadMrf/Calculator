@@ -3,49 +3,136 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	box-sizing: border-box;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
+
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
+
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* STYLES */
@@ -56,7 +143,7 @@ table {
   --otherBtn: #FFB900;
 }
 
-.calc-wrap{
+.calc-wrap {
   /* border: 1px solid #2436FF; */
   width: 21.31rem;
   height: 30.25rem;
@@ -67,7 +154,8 @@ table {
   position: relative;
   background: var(--baseColor);
 }
-.calc-wrap:after{
+
+.calc-wrap:after {
   content: '';
   display: block;
   width: 100%;
@@ -79,14 +167,16 @@ table {
   left: 0;
   position: absolute;
 }
-.calc-content{
+
+.calc-content {
   position: relative;
   padding: .5rem 1.1rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
-.display{
+
+.display {
   display: flex;
   flex-flow: row nowrap;
   margin: 0 auto;
@@ -97,41 +187,53 @@ table {
   border-radius: 5px;
   color: #292929;
 }
-.output-disp{
- padding: .5rem;
- border: 1px solid #6C79FF; 
- font-size: 3rem;
- text-align: right;
- height: 100%;
- line-height: 4rem;
- flex-grow: 1;
+
+.output-disp {
+  padding: .5rem;
+  /* border: 1px solid #6C79FF; */
+  font-size: 3rem;
+  text-align: right;
+  height: 100%;
+  line-height: 4rem;
+  flex-grow: 1;
 }
-.output-sign{
-  border: 1px solid #6C79FF; 
+
+.output-sign {
+  /* border: 1px solid #6C79FF; */
   flex-basis: 2rem;
+  padding: .5rem;
+  font-size: 2rem;
+  text-align: right;
+  height: 100%;
+  line-height: 4rem;
 }
-.info{
+
+.info {
   margin-top: 1.5rem;
   /* border: 1px solid #50E9FF; */
   width: 100%;
   padding: 0 .5rem;
 }
-.info:after{
+
+.info:after {
   clear: both;
   content: '';
 }
-.info-name{
+
+.info-name {
   font-size: .9rem;
   text-transform: uppercase;
   font-weight: 900;
   padding-top: .5rem;
 }
-.info-disc{
+
+.info-disc {
   font-size: .5rem;
   text-transform: capitalize;
   padding-top: 2px;
 }
-.info-state{
+
+.info-state {
   width: 5.5rem;
   height: 1.7rem;
   /* border: 1px solid #1E8857; */
@@ -139,11 +241,13 @@ table {
   border-radius: 3px;
   background: #01FF00;
 }
-button{
+
+button {
   border: none;
   outline: none;
 }
-.main-btn{
+
+.main-btn {
   width: 100%;
   margin-top: 1rem;
   display: flex;
@@ -151,20 +255,23 @@ button{
   /* justify-content: space-evenly; */
   /* border: 1px solid #3F881E; */
 }
-.other-btn{
+
+.other-btn {
   /* border: 1px solid #9CDF7F; */
   display: flex;
   flex-flow: column nowrap;
   flex-basis: 4.5rem;
 }
-.other{
+
+.other {
   width: 2.8rem;
   height: 6.5rem;
   background: var(--otherBtn);
   border-radius: 2rem;
-  margin-bottom:.8rem;
+  margin-bottom: .8rem;
 }
-.numbers-btn{
+
+.numbers-btn {
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
@@ -172,7 +279,8 @@ button{
   /* flex-grow: 1; */
   /* border: 1px solid #0C10FF; */
 }
-.num{
+
+.num {
   /* width: 3.6rem; */
   width: calc(33.33% - .6rem);
   height: 2.8rem;
@@ -181,20 +289,23 @@ button{
   border-radius: 5px;
   color: #fff;
 }
-.signs-btn{
+
+.signs-btn {
   /* border: 1px solid #FF6C6C; */
   display: flex;
   flex-flow: column nowrap;
   /* flex-basis: 6rem */
 }
-.sign{
+
+.sign {
   width: 2.8rem;
   height: 2.9rem;
   background: var(--baseBtn);
   border-radius: 2rem;
   margin-bottom: .7rem;
 }
-.equal{
+
+.equal {
   width: 10.5rem;
   height: 2.6rem;
   border-radius: 2rem;
