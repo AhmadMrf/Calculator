@@ -49,10 +49,15 @@ table {
 }
 
 /* STYLES */
-
+:root {
+  --baseColor: #FEFF8E;
+  --baseBtn: #BBBBBB;
+  --baseNums: #35313E;
+  --otherBtn: #FFB900;
+}
 
 .calc-wrap{
-  border: 1px solid #2436FF;
+  /* border: 1px solid #2436FF; */
   width: 21.31rem;
   height: 30.25rem;
   margin: 2rem auto;
@@ -60,6 +65,7 @@ table {
   border-top-right-radius: 40% 2rem;
   border-top-left-radius: 40% 2rem;
   position: relative;
+  background: var(--baseColor);
 }
 .calc-wrap:after{
   content: '';
@@ -81,17 +87,28 @@ table {
   align-items: center;
 }
 .display{
+  display: flex;
+  flex-flow: row nowrap;
   margin: 0 auto;
   margin-top: 1.5rem;
   width: 100%;
   height: 5rem;
-  /* border: 1px solid #6C79FF; */
   background: #CACACA;
   border-radius: 5px;
-  padding: .5rem;
   color: #292929;
-  font-size: 4.5rem;
-  text-align: right;
+}
+.output-disp{
+ padding: .5rem;
+ border: 1px solid #6C79FF; 
+ font-size: 3rem;
+ text-align: right;
+ height: 100%;
+ line-height: 4rem;
+ flex-grow: 1;
+}
+.output-sign{
+  border: 1px solid #6C79FF; 
+  flex-basis: 2rem;
 }
 .info{
   margin-top: 1.5rem;
@@ -117,8 +134,10 @@ table {
 .info-state{
   width: 5.5rem;
   height: 1.7rem;
-  border: 1px solid #1E8857;
+  /* border: 1px solid #1E8857; */
   float: right;
+  border-radius: 3px;
+  background: #01FF00;
 }
 button{
   border: none;
@@ -141,7 +160,7 @@ button{
 .other{
   width: 2.8rem;
   height: 6.5rem;
-  background: #FFAFAF50;
+  background: var(--otherBtn);
   border-radius: 2rem;
   margin-bottom:.8rem;
 }
@@ -157,8 +176,10 @@ button{
   /* width: 3.6rem; */
   width: calc(33.33% - .6rem);
   height: 2.8rem;
-  background: #4F4F4F60;
+  background: var(--baseNums);
   margin: 0 .6rem .8rem 0;
+  border-radius: 5px;
+  color: #fff;
 }
 .signs-btn{
   /* border: 1px solid #FF6C6C; */
@@ -169,7 +190,7 @@ button{
 .sign{
   width: 2.8rem;
   height: 2.9rem;
-  background: #FFAFAF50;
+  background: var(--baseBtn);
   border-radius: 2rem;
   margin-bottom: .7rem;
 }
@@ -177,5 +198,5 @@ button{
   width: 10.5rem;
   height: 2.6rem;
   border-radius: 2rem;
-  background: #6399FF89;
+  background: var(--baseBtn);
 }
