@@ -126,7 +126,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -137,10 +137,10 @@ table {
 
 /* STYLES */
 :root {
-  --baseColor: #FEFF8E;
-  --baseBtn: #BBBBBB;
-  --baseNums: #35313E;
-  --otherBtn: #FFB900;
+  --baseColor: #feff8e;
+  --baseBtn: #bbbbbb;
+  --baseNums: #35313e;
+  --otherBtn: #ffb900;
 }
 
 .calc-wrap {
@@ -156,11 +156,11 @@ table {
 }
 
 .calc-wrap:after {
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   height: 100%;
-  opacity: .4;
+  opacity: 0.4;
   /* background: url(src/bg.jpg) center; */
   background-size: cover;
   top: 0;
@@ -170,7 +170,7 @@ table {
 
 .calc-content {
   position: relative;
-  padding: .5rem 1.1rem;
+  padding: 0.5rem 1.1rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -183,13 +183,13 @@ table {
   margin-top: 1.5rem;
   width: 100%;
   height: 5rem;
-  background: #CACACA;
+  background: #cacaca;
   border-radius: 5px;
   color: #292929;
 }
 
 .output-disp {
-  padding: .5rem;
+  padding: 0.5rem;
   /* border: 1px solid #6C79FF; */
   font-size: 3rem;
   text-align: right;
@@ -201,7 +201,7 @@ table {
 .output-sign {
   /* border: 1px solid #6C79FF; */
   flex-basis: 2rem;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 2rem;
   text-align: right;
   height: 100%;
@@ -212,23 +212,23 @@ table {
   margin-top: 1.5rem;
   /* border: 1px solid #50E9FF; */
   width: 100%;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
 }
 
 .info:after {
   clear: both;
-  content: '';
+  content: "";
 }
 
 .info-name {
-  font-size: .9rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   font-weight: 900;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 }
 
 .info-disc {
-  font-size: .5rem;
+  font-size: 0.5rem;
   text-transform: capitalize;
   padding-top: 2px;
 }
@@ -239,7 +239,7 @@ table {
   /* border: 1px solid #1E8857; */
   float: right;
   border-radius: 3px;
-  background: #01FF00;
+  background: #01ff00;
 }
 
 button {
@@ -268,7 +268,8 @@ button {
   height: 6.5rem;
   background: var(--otherBtn);
   border-radius: 2rem;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
 }
 
 .numbers-btn {
@@ -282,12 +283,13 @@ button {
 
 .num {
   /* width: 3.6rem; */
-  width: calc(33.33% - .6rem);
+  width: calc(33.33% - 0.6rem);
   height: 2.8rem;
   background: var(--baseNums);
-  margin: 0 .6rem .8rem 0;
+  margin: 0 0.6rem 0.8rem 0;
   border-radius: 5px;
   color: #fff;
+  font-size: 1rem;
 }
 
 .signs-btn {
@@ -298,11 +300,12 @@ button {
 }
 
 .sign {
+  font-size: 1rem;
   width: 2.8rem;
   height: 2.9rem;
   background: var(--baseBtn);
   border-radius: 2rem;
-  margin-bottom: .7rem;
+  margin-bottom: 0.7rem;
 }
 
 .equal {
