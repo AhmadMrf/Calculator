@@ -144,7 +144,6 @@ table {
 }
 
 .calc-wrap {
-  /* border: 1px solid #2436FF; */
   width: 21.31rem;
   height: 30.25rem;
   margin: 2rem auto;
@@ -190,7 +189,6 @@ table {
 
 .output-disp {
   padding: 0.5rem;
-  /* border: 1px solid #6C79FF; */
   font-size: 3rem;
   text-align: right;
   height: 100%;
@@ -199,7 +197,6 @@ table {
 }
 
 .output-sign {
-  /* border: 1px solid #6C79FF; */
   flex-basis: 2rem;
   padding: 0.5rem;
   font-size: 2rem;
@@ -210,7 +207,6 @@ table {
 
 .info {
   margin-top: 1.5rem;
-  /* border: 1px solid #50E9FF; */
   width: 100%;
   padding: 0 0.5rem;
 }
@@ -236,7 +232,6 @@ table {
 .info-state {
   width: 5.5rem;
   height: 1.7rem;
-  /* border: 1px solid #1E8857; */
   float: right;
   border-radius: 3px;
   background: #01ff00;
@@ -252,12 +247,9 @@ button {
   margin-top: 1rem;
   display: flex;
   flex-flow: row nowrap;
-  /* justify-content: space-evenly; */
-  /* border: 1px solid #3F881E; */
 }
 
 .other-btn {
-  /* border: 1px solid #9CDF7F; */
   display: flex;
   flex-flow: column nowrap;
   flex-basis: 4.5rem;
@@ -277,12 +269,9 @@ button {
   flex-flow: row wrap;
   align-content: flex-start;
   flex-basis: 90%;
-  /* flex-grow: 1; */
-  /* border: 1px solid #0C10FF; */
 }
 
 .num {
-  /* width: 3.6rem; */
   width: calc(33.33% - 0.6rem);
   height: 2.8rem;
   background: var(--baseNums);
@@ -293,10 +282,8 @@ button {
 }
 
 .signs-btn {
-  /* border: 1px solid #FF6C6C; */
   display: flex;
   flex-flow: column nowrap;
-  /* flex-basis: 6rem */
 }
 
 .sign {
@@ -313,4 +300,7 @@ button {
   height: 2.6rem;
   border-radius: 2rem;
   background: var(--baseBtn);
+}
+.info-state:hover{
+  transform: translate(5px, 5px)
 }
