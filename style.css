@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html,
 body,
 div,
@@ -154,18 +153,18 @@ table {
   background: var(--baseColor);
 }
 
-.calc-wrap:after {
+/* .calc-wrap:after {
   content: "";
   display: block;
   width: 100%;
   height: 100%;
   opacity: 0.4;
-  /* background: url(src/bg.jpg) center; */
+  background: url(src/bg.jpg) center;
   background-size: cover;
   top: 0;
   left: 0;
   position: absolute;
-}
+} */
 
 .calc-content {
   position: relative;
@@ -234,7 +233,7 @@ table {
   height: 1.7rem;
   float: right;
   border-radius: 3px;
-  background: #01ff00;
+  background: #505050;
 }
 
 button {
@@ -301,6 +300,9 @@ button {
   border-radius: 2rem;
   background: var(--baseBtn);
 }
-.info-state:hover{
-  transform: translate(5px, 5px)
+.equal:active,
+.num:active,
+.other:active,
+.sign:active {
+  transform: translate(1px, 2px)
 }
