@@ -57,11 +57,12 @@ backspace.addEventListener('click', () => {
   }
 })
 
-// mp.addEventListener('click', () => {
-//     if (display.textContent !== '') {
-//       display.textContent = Number(display.textContent) * -1;
-//     }
-//   })
+clear.addEventListener('click', ()=>{
+  if(on){
+display.textContent = "0";
+max = true;
+  }
+})
 
 mp.addEventListener('click', ()=>{
 if(display.textContent=='0'){
