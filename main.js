@@ -40,8 +40,25 @@ numbers.forEach((num) => {
         display.textContent += num.textContent;
       }
     }
-    if(display.textContent.length==10){
+    if (display.textContent.length == 10) {
       max = false;
     }
   })
+})
+
+backspace.addEventListener('click', () => {
+  let len = display.textContent.length;
+  if (len > 1) {
+    let bs = display.textContent.substr(0, len - 1);
+    display.textContent = bs;
+    max = true;
+  } else if (len == 1 ) {
+    display.textContent = '0';
+  }
+})
+
+mp.addEventListener('click', ()=>{
+  if(display.textContent !== ''){
+  display.textContent = Number(display.textContent)* -1;
+  }
 })
