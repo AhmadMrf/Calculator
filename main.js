@@ -16,6 +16,7 @@ let clear = document.querySelector('#clear');
 
 let on = false;
 let max = true;
+let oper = '';
 
 onOff.addEventListener('click', () => {
   on = !on
@@ -50,30 +51,51 @@ numbers.forEach((num) => {
 backspace.addEventListener('click', () => {
   let len = display.textContent.length;
   if (len > 1) {
-    display.textContent = display.textContent.substr(0, len - 1); 
+    display.textContent = display.textContent.substr(0, len - 1);
     max = true;
-  }  else if (len == 1 ) {
+  } else if (len == 1) {
     display.textContent = '0';
   }
 })
 
-clear.addEventListener('click', ()=>{
-  if(on){
-display.textContent = "0";
-max = true;
+clear.addEventListener('click', () => {
+  if (on) {
+    display.textContent = "0";
+    max = true;
   }
 })
 
-mp.addEventListener('click', ()=>{
-if(display.textContent=='0'){
-  display.textContent='-';
-  }else if(display.textContent=='-'){
-    display.textContent='0'
-  }else if(display.textContent !== ''){
+mp.addEventListener('click', () => {
+  if (display.textContent == '0') {
+    display.textContent = '-';
+  } else if (display.textContent == '-') {
+    display.textContent = '0'
+  } else if (display.textContent !== '') {
     display.textContent = Number(display.textContent) * -1;
   }
 })
+ 
+plus.addEventListener('click', () => {
+  let disp1 = display.textContent;
+  let disp2 = 
+  oper = '+'
+})
 
+
+switch(oper){
+case '+':
+ Number(disp1)+Number(disp2)
+break;
+case '-':
+
+break;
+case '*':
+
+break;
+case '/':
+
+break;
+}
 // mp.addEventListener('click', ()=>{
 // let disp = display.textContent;
 // switch(disp){
