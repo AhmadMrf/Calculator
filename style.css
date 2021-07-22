@@ -262,6 +262,9 @@ button {
   margin-bottom: 0.8rem;
   font-size: 1rem;
 }
+.other-min{
+height: 2.9rem;
+}
 
 .numbers-btn {
   display: flex;

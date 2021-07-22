@@ -11,7 +11,7 @@ let mul = document.querySelector('#mul');
 let div = document.querySelector('#div');
 let minut = document.querySelector('#minut');
 let plus = document.querySelector('#plus');
-
+let clear = document.querySelector('#clear');
 
 
 let on = false;
