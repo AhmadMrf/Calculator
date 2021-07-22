@@ -13,6 +13,7 @@ let minut = document.querySelector('#minut');
 let plus = document.querySelector('#plus');
 
 
+
 let on = false;
 let max = true;
 
@@ -49,16 +50,41 @@ numbers.forEach((num) => {
 backspace.addEventListener('click', () => {
   let len = display.textContent.length;
   if (len > 1) {
-    let bs = display.textContent.substr(0, len - 1);
-    display.textContent = bs;
+    display.textContent = display.textContent.substr(0, len - 1); 
     max = true;
-  } else if (len == 1 ) {
+  }  else if (len == 1 ) {
     display.textContent = '0';
   }
 })
 
+// mp.addEventListener('click', () => {
+//     if (display.textContent !== '') {
+//       display.textContent = Number(display.textContent) * -1;
+//     }
+//   })
+
 mp.addEventListener('click', ()=>{
-  if(display.textContent !== ''){
-  display.textContent = Number(display.textContent)* -1;
+if(display.textContent=='0'){
+  display.textContent='-';
+  }else if(display.textContent=='-'){
+    display.textContent='0'
+  }else if(display.textContent !== ''){
+    display.textContent = Number(display.textContent) * -1;
   }
 })
+
+// mp.addEventListener('click', ()=>{
+// let disp = display.textContent;
+// switch(disp){
+//  case '0' :
+//  display.textContent='-';
+//  break;
+// case '-' :
+//   display.textContent='0';
+// break;
+// default:
+//   if(disp !== ''){
+//     display.textContent = Number(display.textContent) * -1;
+//   }
+// }
+// })
