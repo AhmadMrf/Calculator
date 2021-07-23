@@ -16,7 +16,19 @@ let clear = document.querySelector('#clear');
 
 let on = false;
 let max = true;
+let num1, num2, result;
 let oper = '';
+
+
+plus.addEventListener('click', () => {
+ if (on && Number(display.textContent)!==NaN) {
+    let num1 = Number(display.textContent);
+    sign.textContent = '+';
+  }
+  oper = '+'
+})
+
+
 
 onOff.addEventListener('click', () => {
   on = !on
@@ -26,6 +38,7 @@ onOff.addEventListener('click', () => {
     max = true;
   } else {
     display.textContent = '';
+    sign.textContent = '';
     state.style.background = '#505050'
     on = false;
   }
@@ -50,17 +63,28 @@ numbers.forEach((num) => {
 
 backspace.addEventListener('click', () => {
   let len = display.textContent.length;
+  if(num1!==NaN && sign.textContent!==''){
+    sign.textContent = '';
+  }else{
   if (len > 1) {
     display.textContent = display.textContent.substr(0, len - 1);
     max = true;
   } else if (len == 1) {
     display.textContent = '0';
   }
+}
 })
+
+// backspace.addEventListener('click', () => {
+//   if(num1!==NaN){
+//     sign.textContent = '';
+//   }
+// })
 
 clear.addEventListener('click', () => {
   if (on) {
     display.textContent = "0";
+    sign.textContent = '';
     max = true;
   }
 })
@@ -74,28 +98,8 @@ mp.addEventListener('click', () => {
     display.textContent = Number(display.textContent) * -1;
   }
 })
- 
-plus.addEventListener('click', () => {
-  let disp1 = display.textContent;
-  let disp2 = 
-  oper = '+'
-})
 
 
-switch(oper){
-case '+':
- Number(disp1)+Number(disp2)
-break;
-case '-':
-
-break;
-case '*':
-
-break;
-case '/':
-
-break;
-}
 // mp.addEventListener('click', ()=>{
 // let disp = display.textContent;
 // switch(disp){
