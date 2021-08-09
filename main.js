@@ -1,5 +1,5 @@
 let display = document.querySelector('#output-disp');
-let bgDisplay = document.querySelector('.display') ;
+let bgDisplay = document.querySelector('.display');
 let sign = document.querySelector('#output-sign');
 let state = document.querySelector('#state');
 let backspace = document.querySelector('#backspace');
@@ -19,8 +19,9 @@ let signs = document.querySelectorAll('.sign');
 
 let on = false;
 let max = true;
-let oper = '';
+// let oper = ''
 let checkOper = false;
+let checkEqual = false;
 let num1, num2, result;
 
 
@@ -38,139 +39,103 @@ onOff.addEventListener('click', () => {
     state.style.background = '#505050'
     bgDisplay.style.background = '#879284'
     on = false;
-    oper = '';
+    // oper = '';
   }
 })
 
 
-plus.addEventListener('click', () => {
- if (on && Number(display.textContent)!==NaN) {
+
+signs.forEach((s) => {
+  s.addEventListener('click', () => {
+    let d = Number(display.textContent);
+    
+    if (on && !isNaN(d)) {
     num1 = Number(display.textContent);
-    sign.textContent = '+';
+    max = true;
+    switch(s.id){
+      case 'plus':
+        sign.textContent = '+'
+      break;
+      case 'minut':
+      sign.textContent = '-'
+      break;
+      case 'mul':
+      sign.textContent = '*'
+      break;
+      case 'div':
+      sign.textContent = '/'
+      break;
+    }
+    checkOper = true;
+    }
+  })
+})
+
+
+equal.addEventListener('click', () => {
+if(on && sign.textContent !=='' && !checkOper){
+  num2 = Number(display.textContent);
+  switch (sign.textContent) {
+    case '*':
+      result = num1 * num2;
+      break;
+    case '/':
+      result = num1 / num2;
+      break;
+    case '-':
+      result = num1 - num2;
+      break;
+    case '+':
+      result = num1 + num2;
+      break;
   }
-  checkOper = true;
-  oper = '+'
-})
-
-minut.addEventListener('click', () => {
-  if (on && Number(display.textContent) !== NaN) {
-    num1 = Number(display.textContent);
-    sign.textContent = '-';
-  }
-  checkOper = true;
-  oper = '-'
-})
-
-mul.addEventListener('click', () => {
-  if (on && Number(display.textContent) !== NaN) {
-    num1 = Number(display.textContent);
-    sign.textContent = '*';
-  }
-  checkOper = true;
-  oper = '*'
-})
-
-div.addEventListener('click', () => {
-  if (on && Number(display.textContent) !== NaN) {
-    num1 = Number(display.textContent);
-    sign.textContent = '/';
-  }
-  checkOper = true;
-  oper = '/'
-})
-
-
-signs.forEach((s) =>{
-  s.addEventListener('click',() =>{
-  num1 = Number(display.textContent);
-  checkOper = true;
-  console.log('uuu');
-})
-})
-
-
-equal.addEventListener('click', () =>{
-  // console.log(num1);
-  num2 = display.textContent;
-  switch(oper){
-    case '*' :
-     result = num1 * num2;
-     break;
-     
-  }
+  sign.textContent = '';
   display.textContent = result;
+  checkEqual = true;
+}
 })
 
-function addNumbers(num){
-  num.addEventListener('click', () =>{
+
+numbers.forEach(addNumbers);
+function addNumbers(num) {
+  num.addEventListener('click', () => {
     if (on && max) {
-      if(checkOper){
+      if (checkEqual || checkOper) {
         checkOper = false;
+        checkEqual = false;
         display.textContent = '';
         display.textContent += num.textContent;
       } else if (display.textContent == '0') {
         display.textContent = '';
         display.textContent += num.textContent;
-      } else if(display.textContent == '-0'){
+      } else if (display.textContent == '-0') {
         display.textContent = '-';
         display.textContent += num.textContent;
-      } else if(display.textContent.length ==10){
+      } else if (display.textContent.length == 10) {
         max = false;
       }
       else {
         display.textContent += num.textContent;
-       }
-     }
+      }
+    }
   })
 };
 
-numbers.forEach(addNumbers);
-
-// function addSignNumber(num){
-//   num.addEventListener('click', () => {
-//     console.log('jj');
-//     num1 = display.textContent;
-//     if (on && max) {
-//       if (display.textContent == '0') {
-//         display.textContent = '';
-//         display.textContent += num.textContent;
-//       } else 
-//       if (display.textContent == '-0') {
-//         display.textContent = '-';
-//         display.textContent += num.textContent;
-//       }
-//       else if (display.textContent.length == 10) {
-//         max = false;
-//       }
-//       else {
-//         display.textContent += num.textContent;
-//       }
-//     }
-//   })
-// }
-
-// numbers.forEach((num) =>{
-//   if(oper === ''){
-//     addNumbers(num)
-//   }else{
-//     addSignNumber(num)
-//   }
-// });
 
 
 backspace.addEventListener('click', () => {
-  
+
   let len = display.textContent.length;
-  if(num1!==NaN && sign.textContent!==''){
+  if (num1 !== NaN && sign.textContent !== '') {
     sign.textContent = '';
-  }else{
-  if (len > 1) {
-    display.textContent = display.textContent.substr(0, len - 1);
-    max = true;
-  } else if (len == 1) {
-    display.textContent = '0';
+  } else {
+    if (len > 1) {
+      display.textContent = display.textContent.substr(0, len - 1);
+      max = true;
+    } else if (len == 1) {
+      display.textContent = '0';
+    }
   }
-}
 })
 
 
@@ -184,7 +149,10 @@ clear.addEventListener('click', () => {
 
 
 mp.addEventListener('click', () => {
-  if (display.textContent == '0') {
+  if (checkOper) {
+    checkOper = false;
+    display.textContent = '-';
+  }else if (display.textContent == '0') {
     display.textContent = '-';
   } else if (display.textContent == '-') {
     display.textContent = '0'
@@ -193,12 +161,15 @@ mp.addEventListener('click', () => {
   }
 })
 
-point.addEventListener('click', () =>{
- if(display.textContent.includes('.')){
-   
- } else if(display.textContent == '-'){
+point.addEventListener('click', () => {
+  if (display.textContent.includes('.')) {
+
+  }else if (checkOper) {
+    checkOper = false;
+    display.textContent = '0.';
+  } else if (display.textContent == '-') {
     display.textContent = '-0.'
-  }else if(display.textContent !== ''){
+  } else if (display.textContent !== '') {
     display.textContent += '.'
   }
 })
