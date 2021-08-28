@@ -153,18 +153,6 @@ table {
   background: var(--baseColor);
 }
 
-/* .calc-wrap:after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  opacity: 0.4;
-  background: url(src/bg.jpg) center;
-  background-size: cover;
-  top: 0;
-  left: 0;
-  position: absolute;
-} */
 
 .calc-content {
   position: relative;
