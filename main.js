@@ -17,11 +17,11 @@ let signs = document.querySelectorAll('.sign');
 
 
 
-let on = false;
+let on, checkOper, checkEqual = false;
 let max = true;
 // let oper = ''
-let checkOper = false;
-let checkEqual = false;
+// let checkOper = false;
+// let checkEqual = false;
 let num1, num2, result;
 
 
@@ -39,64 +39,133 @@ onOff.addEventListener('click', () => {
     state.style.background = '#505050'
     bgDisplay.style.background = '#879284'
     on = false;
-    // oper = '';
   }
 })
 
+
+
+// signs.forEach((s) => {
+//   s.addEventListener('click', () => {
+//     let d = Number(display.textContent);
+//     if (on && !isNaN(d)) {
+//     num1 = Number(display.textContent);
+//     max = true;
+//     switch(s.id){
+//       case 'plus':
+//         sign.textContent = '+'
+//       break;
+//       case 'minut':
+//       sign.textContent = '-'
+//       break;
+//       case 'mul':
+//       sign.textContent = '*'
+//       break;
+//       case 'div':
+//       sign.textContent = '/'
+//       break;
+//     }
+//     checkOper = true;
+//     }
+//   })
+// })
 
 
 signs.forEach((s) => {
   s.addEventListener('click', () => {
     let d = Number(display.textContent);
-    
-    if (on && !isNaN(d)) {
-    num1 = Number(display.textContent);
-    max = true;
-    switch(s.id){
-      case 'plus':
-        sign.textContent = '+'
-      break;
-      case 'minut':
-      sign.textContent = '-'
-      break;
-      case 'mul':
-      sign.textContent = '*'
-      break;
-      case 'div':
-      sign.textContent = '/'
-      break;
+    if(on && !checkOper && !isNaN(d) && sign.textContent !==''){
+      checkResult();
+      display.textContent = result;
+      checkSign(s)
     }
-    checkOper = true;
+    else if (on && !isNaN(d)) {
+     checkSign(s);
     }
   })
 })
 
+function checkSign(s){
+  num1 = Number(display.textContent);
+  max = true;
+  switch (s.id) {
+    case 'plus':
+      sign.textContent = '+'
+      break;
+    case 'minut':
+      sign.textContent = '-'
+      break;
+    case 'mul':
+      sign.textContent = '*'
+      break;
+    case 'div':
+      sign.textContent = '/'
+      break;
+  }
+  checkOper = true;
+}
 
-equal.addEventListener('click', () => {
-if(on && sign.textContent !=='' && !checkOper){
+function checkResult(){
+  let r;
   num2 = Number(display.textContent);
   switch (sign.textContent) {
     case '*':
-      result = num1 * num2;
+      r = num1 * num2;
       break;
     case '/':
-      result = num1 / num2;
+      r = num1 / num2;
       break;
     case '-':
-      result = num1 - num2;
+      r = num1 - num2;
       break;
     case '+':
-      result = num1 + num2;
+      r = (num1*10 + num2*10)/10;
       break;
   }
-  sign.textContent = '';
-  display.textContent = result;
-  checkEqual = true;
+  if(r.toString().length >= 10){
+      result = r.toExponential(8);
+    return result;
+  }else{
+    result = r;
+    return result;
+  }
 }
+
+equal.addEventListener('click', ()=>{
+  if(on && sign.textContent !=='' && !checkOper){
+    checkResult();
+    sign.textContent = '';
+    display.textContent = result;
+    checkEqual = true;
+  }
 })
 
 
+// equal.addEventListener('click', () => {
+// if(on && sign.textContent !=='' && !checkOper){
+//   num2 = Number(display.textContent);
+//   switch (sign.textContent) {
+//     case '*':
+//       result = num1 * num2;
+//       break;
+//     case '/':
+//       result = num1 / num2;
+//       break;
+//     case '-':
+//       result = num1 - num2;
+//       break;
+//     case '+':
+//       result = num1 + num2;
+//       break;
+//   }
+//   sign.textContent = '';
+//   display.textContent = result;
+//   checkEqual = true;
+// }
+// })
+
+
 numbers.forEach(addNumbers);
+
 function addNumbers(num) {
   num.addEventListener('click', () => {
     if (on && max) {
@@ -111,7 +180,7 @@ function addNumbers(num) {
       } else if (display.textContent == '-0') {
         display.textContent = '-';
         display.textContent += num.textContent;
-      } else if (display.textContent.length == 10) {
+      } else if (display.textContent.length == 13) {
         max = false;
       }
       else {
@@ -127,7 +196,10 @@ backspace.addEventListener('click', () => {
 
   let len = display.textContent.length;
   if (num1 !== NaN && sign.textContent !== '') {
-    sign.textContent = '';
+    // sign.textContent = '';
+    display.textContent = display.textContent.substr(0, len - 1);
+    max = true;
+    // checkOper = true;
   } else {
     if (len > 1) {
       display.textContent = display.textContent.substr(0, len - 1);
@@ -162,7 +234,7 @@ mp.addEventListener('click', () => {
 })
 
 point.addEventListener('click', () => {
-  if (display.textContent.includes('.')) {
+  if (display.textContent.includes('.') && !checkOper) {
 
   }else if (checkOper) {
     checkOper = false;
