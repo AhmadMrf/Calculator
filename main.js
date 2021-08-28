@@ -19,9 +19,6 @@ let signs = document.querySelectorAll('.sign');
 
 let on, checkOper, checkEqual = false;
 let max = true;
-// let oper = ''
-// let checkOper = false;
-// let checkEqual = false;
 let num1, num2, result;
 
 
@@ -42,32 +39,6 @@ onOff.addEventListener('click', () => {
   }
 })
 
-
-
-// signs.forEach((s) => {
-//   s.addEventListener('click', () => {
-//     let d = Number(display.textContent);
-//     if (on && !isNaN(d)) {
-//     num1 = Number(display.textContent);
-//     max = true;
-//     switch(s.id){
-//       case 'plus':
-//         sign.textContent = '+'
-//       break;
-//       case 'minut':
-//       sign.textContent = '-'
-//       break;
-//       case 'mul':
-//       sign.textContent = '*'
-//       break;
-//       case 'div':
-//       sign.textContent = '/'
-//       break;
-//     }
-//     checkOper = true;
-//     }
-//   })
-// })
 
 
 signs.forEach((s) => {
@@ -140,30 +111,6 @@ equal.addEventListener('click', ()=>{
 })
 
 
-// equal.addEventListener('click', () => {
-// if(on && sign.textContent !=='' && !checkOper){
-//   num2 = Number(display.textContent);
-//   switch (sign.textContent) {
-//     case '*':
-//       result = num1 * num2;
-//       break;
-//     case '/':
-//       result = num1 / num2;
-//       break;
-//     case '-':
-//       result = num1 - num2;
-//       break;
-//     case '+':
-//       result = num1 + num2;
-//       break;
-//   }
-//   sign.textContent = '';
-//   display.textContent = result;
-//   checkEqual = true;
-// }
-// })
-
-
 numbers.forEach(addNumbers);
 
 function addNumbers(num) {
@@ -196,10 +143,8 @@ backspace.addEventListener('click', () => {
 
   let len = display.textContent.length;
   if (num1 !== NaN && sign.textContent !== '') {
-    // sign.textContent = '';
     display.textContent = display.textContent.substr(0, len - 1);
     max = true;
-    // checkOper = true;
   } else {
     if (len > 1) {
       display.textContent = display.textContent.substr(0, len - 1);
